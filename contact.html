@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="text-center p-3 bg-primary text-white">
+        <h1>Contact Us</h1>
+    </header>
+
+    <section class="contact-form container my-5">
+        <form>
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+            </div>
+            <div class="mb-3">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" id="phone" placeholder="Your Phone Number" required>
+            </div>
+            <div class="mb-3">
+                <label for="selected-pet" class="form-label">Selected Pet</label>
+                <input type="text" class="form-control" id="selected-pet" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" rows="3" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </section>
+
+    <script>
+        // Extract the pet name from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const petName = urlParams.get('pet');
+
+        // Set the pet name in the "Selected Pet" field
+        if (petName) {
+            document.getElementById('selected-pet').value = petName;
+        }
+    </script>
+</body>
+</html>
